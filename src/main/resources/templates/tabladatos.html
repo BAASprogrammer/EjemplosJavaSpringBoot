@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+	<div th:text="${titulo}" style="margin:5px"></div>
+		<!-- isEmpty verifica si está vacío, not es lo mismo que !, sólo se usa con resultados booleanos -->
+		<table th:if="${not usuarios.isEmpty()}" border="1" width="30%">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Correo</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- 		Se recorreo el array con un each (for each) -->
+				<tr th:each="clientes : ${usuarios}">
+					<!-- 			Se imprime los datos -->
+					<td th:text=${clientes.nombre}></td>
+					<td th:text=${clientes.apellido}></td>
+					<td th:text=${clientes.correo}></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

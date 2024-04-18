@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${titulo}"></title>
+</head>
+<body>
+	<h1 th:text="${titulo}"></h1>
+	
+	<div th:text="${usuario.nombre}"></div>
+	<div th:text="${usuario.apellido}"></div>
+<!-- 	si existe un correo lo muestra -->
+	<div th:if="${usuario.correo}" th:text="${usuario.correo}"></div>
+<!-- 	si el correo es null muestra mensaje por defecto que le asignemos -->
+	<div th:if="${usuario.correo == null}">El usuario no tiene correo</div>
+		<!-- isEmpty verifica si está vacío, not es lo mismo que !, sólo se usa con resultados booleanos -->
+	<table th:if="${not usuarios.isEmpty()}" border="1" width="30%">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Correo</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- 		Se recorreo el array con un each (for each) -->
+			<tr th:each="clientes : ${usuarios}">
+				<!-- 			Se imprime los datos -->
+				<td th:text=${clientes.nombre}></td>
+				<td th:text=${clientes.apellido}></td>
+				<td th:text=${clientes.correo}></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

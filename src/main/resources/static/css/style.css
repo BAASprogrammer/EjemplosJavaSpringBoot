@@ -1,0 +1,28 @@
+h1.titulo {
+	font-style: italic;
+	text-align: center;
+	color: brown;
+	text-transform: capitalize;
+	text-decoration: underline;
+	animation-name: girar;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes girar{
+	0%{
+		opacity:1;
+	}
+	50%{
+		opacity:0;
+	}
+	100%{
+		opacity:1;
+	}
+}
+
+.container {
+	display: grid;
+	grid-template-columns: auto auto;
+	gap: normal;
+}

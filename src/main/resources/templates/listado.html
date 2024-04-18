@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
+<title th:text="${titulo}"></title>
+<style type="text/css">
+table td {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<h1 class="titulo" th:text="${titulo}"></h1>
+
+	<div th:if="${usuarios.size==0}">No hay usuarios en la lista</div>
+	<!-- 	.size tamaño array -->
+	<div th:if="${usuarios.size>0}" th:text=${usuarios.size}></div>
+	<div class="container">
+		<div>
+			<!-- isEmpty verifica si está vacío, not es lo mismo que !, sólo se usa con resultados booleanos -->
+			<table th:if="${not usuarios.isEmpty()}" border="1" width="30%">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Correo</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- 		Se recorreo el array con un each (for each) -->
+					<tr th:each="clientes : ${usuarios}">
+						<!-- 			Se imprime los datos -->
+						<td th:text=${clientes.nombre}></td>
+						<td th:text=${clientes.apellido}></td>
+						<td th:text=${clientes.correo}></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div>
+			<img alt="amphibia" th:src="@{/images/amphibia.jpg}" width="50%">
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http:/thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${cadena}"></title>
+</head>
+<body>
+	<h1 th:text="${cadena}">Enviar parámetros por URL</h1>
+	<ul>
+		<li> <a th:href="@{/parametros/string(texto='Enviando dato desde index.html', numero = 1)}">Parámetro 1</a></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+
+</body>
+</html>
